@@ -1,0 +1,18 @@
+# -*- mode: sh; -*-
+
+# Some colors.
+fg_pink=$'\e[1;35m'
+
+function prompt_foggy_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Define prompts.
+  # Looks like '@host [time] current dir '
+  PROMPT="%B%K{blue}@%m%k ${fg_pink}⌚ %T %F{white}%~%b%E
+▶ "
+  RPROMPT=''
+}
+
+prompt_foggy_setup "$@"
